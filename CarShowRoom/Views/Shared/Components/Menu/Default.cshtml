@@ -1,0 +1,32 @@
+﻿@model IEnumerable<CarShowRoom.Models.Menu>
+
+<ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+    @foreach (var menu in Model)
+    {
+        <li class="dropdown @(menu.SubMenus != null && menu.SubMenus.Any() ? "dropdown" : "")">
+            <a href="@menu.MenuUrl" class="dropdown-toggle" @(menu.SubMenus != null && menu.SubMenus.Any() ? "data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'" : "")>
+                @menu.MenuTitle
+                @if (menu.SubMenus != null && menu.SubMenus.Any())
+                {
+                    <span class="caret"></span>
+                }
+            </a>
+            @if (menu.SubMenus != null && menu.SubMenus.Any())
+            {
+                <ul class="dropdown-menu">
+                    @foreach (var subMenu in menu.SubMenus)
+                    {
+                        <li><a href="@subMenu.MenuUrl">@subMenu.MenuTitle</a></li>
+                    }
+                </ul>
+            }
+        </li>
+    }
+
+    @if (User.IsInRole("Admin")) // Check if the user is in the Admin role
+    {
+        <li>
+            <a href="@Url.Action("CPanel", "Administrator")" target="_blank">Admin Dashboard</a> <!-- Link to Admin Dashboard -->
+        </li>
+    }
+</ul>

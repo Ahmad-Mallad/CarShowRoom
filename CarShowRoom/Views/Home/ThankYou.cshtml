@@ -1,0 +1,59 @@
+﻿@{
+   
+    Layout = null;
+}
+<div class="container text-center mt-5">
+    <h1>Thank You!</h1>
+    <p>Your message has been successfully sent. We will get back to you soon.</p>
+    <a href="@Url.Action("Index", "Home")" class="btn btn-primary mt-3">Go Back to Home</a>
+</div>
+<style>
+    body {
+    font-family: 'Arial', sans-serif; 
+    background-color: #f9f9f9; 
+    color: #333; 
+    margin: 0; 
+    padding: 0; 
+}
+
+.container {
+    max-width: 600px; 
+    margin: 0 auto;
+    padding: 40px; 
+    background-color: #ffffff;
+    border-radius: 8px; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+    animation: fadeIn 0.5s; 
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #007bff; 
+}
+
+p {
+    font-size: 1.2rem; 
+    margin-bottom: 30px; 
+}
+
+.btn {
+    background-color: #007bff; /* Primary blue button */
+    color: white; /* White text on button */
+    padding: 10px 20px; /* Padding for button */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded button corners */
+    text-decoration: none; /* Remove underline from link */
+    transition: background-color 0.3s, transform 0.2s; /* Transition effects */
+    font-size: 1.1rem; /* Button font size */
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+
+
+
+</style>

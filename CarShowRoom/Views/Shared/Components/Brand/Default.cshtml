@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Brand>
+
+<!--works start -->
+<section id="works" class="works">
+    <div class="container">
+        <br />
+        <div class="section-header text-center">
+            <h2>Car Brands</h2>
+            <p>Select a brand to explore available models</p>
+        </div><!--/.section-header-->
+        <div class="works-content">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 mb-4 d-flex align-items-stretch">
+                        <div class="single-how-works text-center p-3 border rounded d-flex flex-column">
+                            <div class="mb-3">
+                                <img src="~/assets/img/@item.BrandImg" alt="Alternate Text" class="img-fluid" style="max-width: 100px; max-height: 100px;" />
+                            </div>
+                            <h2><a href="#">@item.BrandName</a></h2>
+                            <div class="mt-auto">
+                                <a href="@Url.Action("BrandDetails", "Home", new { id = item.BrandId })" class="btn btn-primary mt-2">
+                                    Models
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--/.container-->
+
+<!--/.works-->
+<!--works end -->

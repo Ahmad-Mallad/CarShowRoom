@@ -1,0 +1,65 @@
+﻿@model IEnumerable<CarShowRoom.Models.Brand>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary" >Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BrandName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BrandImg)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BrandText)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsDeleted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreationDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BrandName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BrandImg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BrandText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsDeleted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreationDate)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.BrandId"    class="btn-sm btn-warning">Edit</a> 
+                <a asp-action="Details" asp-route-id="@item.BrandId" class="btn-sm btn-primary">Details</a> 
+                <a asp-action="Delete" asp-route-id="@item.BrandId"  class="btn-sm btn-danger" >Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

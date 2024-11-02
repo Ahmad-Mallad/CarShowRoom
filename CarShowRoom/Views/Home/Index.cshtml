@@ -1,0 +1,14 @@
+﻿@model CarShowRoom.Models.DataModel.IndexDataModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+
+
+
+@await Component.InvokeAsync("Brand")
+@await Component.InvokeAsync("Feature")
+@await Component.InvokeAsync("News")
+@await Component.InvokeAsync("ContactUs")

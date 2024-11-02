@@ -1,0 +1,60 @@
+﻿@model IEnumerable<News>
+
+<!--blog start -->
+<section id="blog" class="blog">
+	<div class="container">
+		<div class="section-header">
+			<h2>News and Articles</h2>
+			<p>Always up to date with our latest News and Articles</p>
+		</div><!--/.section-header-->
+		<div class="blog-content">
+			<div class="row">
+
+				@foreach (var item in Model)
+				{
+					<div class="col-md-4 col-sm-6">
+						<div class="single-blog-item">
+							<div class="single-blog-item-img">
+								<img src="~/assets/img/@item.NewsImg" alt="blog image">
+							</div>
+							<div class="single-blog-item-txt">
+								<h2>
+									<!-- News Title triggers modal -->
+									<a href="#" data-toggle="modal" data-target="#newsModal-@item.NewsId">@item.NewsTitle</a>
+								</h2>
+								<h4>Posted by <span>admin</span> on @item.CreationDate.ToShortDateString()</h4>
+
+								<!-- Display only the first 10 words of content -->
+								<p>@string.Join(" ", item.NewsContent.Split(' ').Take(10))...</p>
+
+							</div>
+						</div>
+					</div>
+
+					<!-- Modal for displaying full content -->
+					<div class="modal fade" id="newsModal-@item.NewsId" tabindex="-1" role="dialog" aria-labelledby="newsModalLabel-@item.NewsId" aria-hidden="true">
+						<div class="modal-dialog modal-dialog-centered" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="newsModalLabel-@item.NewsId">@item.NewsTitle</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body text-center">
+									<!-- Text centered in the modal -->
+									<!-- Full news content displayed in modal -->
+									<p>@item.NewsContent</p>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				}
+			</div>
+		</div>
+	</div><!--/.container-->
+</section><!--/.blog-->
+<!--blog end -->

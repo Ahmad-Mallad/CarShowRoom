@@ -1,0 +1,27 @@
+﻿@model IEnumerable<CarShowRoom.Models.ContactSubmission>
+
+<h2>Contact Form Submissions</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Subject</th>
+            <th>Message</th>
+            <th>Date Submitted</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var submission in Model)
+        {
+            <tr>
+                <td>@submission.Name</td>
+                <td>@submission.Email</td>
+                <td>@submission.Subject</td>
+                <td>@submission.Message</td>
+                <td>@submission.SubmittedAt.ToString("g")</td>
+            </tr>
+        }
+    </tbody>
+</table>

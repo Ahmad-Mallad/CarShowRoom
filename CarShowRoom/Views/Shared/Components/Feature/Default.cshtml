@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Feature>
+
+<!-- Why Choose Us Section Start -->
+<section id="why-choose-us" class="why-choose-us" style="background-color: #fff; padding: 50px 0;">
+    <div class="section-header text-center">
+        <h2>Why Choose <strong>Us</strong></h2>
+        <p>Your satisfaction, our priority</p>
+    </div>
+
+    <div class="container">
+        <div class="row text-center">
+
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="feature-box">
+                        <i class="@item.IconClass fa-3x" aria-hidden="true"></i>
+                        <h3>@item.Title</h3>
+                        <p>@item.Description</p>
+                    </div>
+                </div>
+                
+            }
+
+           
+
+           
+        </div>
+    </div>
+</section>
+<!-- Why Choose Us Section End -->
